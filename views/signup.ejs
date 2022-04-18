@@ -153,17 +153,24 @@
                 <form action="/signup" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label for="inputEmail4">Full Name</label>
+                            <input name="name" type="text" class="form-control" id="inputEmail4" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                            <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
-                            <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            <input id="password" name="password"   type="password" onkeyup='check();' class="form-control" id="inputPassword4"
+                                placeholder="Password" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Confirm Password</label>
-                        <input name="cpassword" type="password" class="form-control" id="inputAddress" placeholder="Retype Password">
+                        <input id="cpassword" name="cpassword" type="password" onkeyup='check();' class="form-control" id="inputAddress"
+                            placeholder="Retype Password" required>
+                            <span id='message'></span>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2"> College/University </label>
@@ -195,6 +202,7 @@
 
                             </div>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
             </div>
@@ -202,7 +210,18 @@
         </div>
     </section>
 
-
+<script>
+    var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('cpassword').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
 
