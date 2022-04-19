@@ -10,8 +10,8 @@ router.use(fileUpload());
 
 
 AWS.config.update({
-        accessKeyId: 'AKIAUNTJLAUF32JUC2ZR',
-        secretAccessKey: 'oq1wE8s2aEUB+NJ93/ufw/jEG8FjCWILkNmgJp4k'
+        accessKeyId: 'Your Access key',
+        secretAccessKey: 'Secret Key'
     })
 
 const s3 = new AWS.S3({
