@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Blog Details - HeroBiz Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Variables CSS Files. Uncomment your preferred color scheme -->
+  <link href="/css/variables.css" rel="stylesheet">
+  <!-- <link href="/css/variables-blue.css" rel="stylesheet"> -->
+  <!-- <link href="/css/variables-green.css" rel="stylesheet"> -->
+  <!-- <link href="/css/variables-orange.css" rel="stylesheet"> -->
+  <!-- <link href="/css/variables-purple.css" rel="stylesheet"> -->
+  <!-- <link href="/css/variables-red.css" rel="stylesheet"> -->
+  <!-- <link href="/css/variables-pink.css" rel="stylesheet"> -->
+
+  <!-- Template Main CSS File -->
+  <link href="/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header id="header" class="header fixed-top" data-scrollto-offset="0">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="/img/logo.png" alt=""> -->
+        <h1>FindMeHostel<span></span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <!-- <ul>
+                  <li><a href="index.html" class="active">Home 1 - index.html</a></li>
+                  <li><a href="index-2.html">Home 2 - index-2.html</a></li>
+                  <li><a href="index-3.html">Home 3 - index-3.html</a></li>
+                  <li><a href="index-4.html">Home 4 - index-4.html</a></li>
+                </ul> -->
+          </li>
+
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html#services">Features</a></li>
+          <li><a class="nav-link scrollto" href="index.html#portfolio">Hostels</a></li>
+          <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li>
+                    <a href="#">Column 1 link 1</a>
+                    <a href="#">Column 1 link 2</a>
+                    <a href="#">Column 1 link 3</a>
+                  </li>
+                  <li>
+                    <a href="#">Column 2 link 1</a>
+                    <a href="#">Column 2 link 2</a>
+                    <a href="#">Column 3 link 3</a>
+                  </li>
+                  <li>
+                    <a href="#">Column 3 link 1</a>
+                    <a href="#">Column 3 link 2</a>
+                    <a href="#">Column 3 link 3</a>
+                  </li>
+                  <li>
+                    <a href="#">Column 4 link 1</a>
+                    <a href="#">Column 4 link 2</a>
+                    <a href="#">Column 4 link 3</a>
+                  </li>
+                </ul>
+              </li> -->
+          <li class="dropdown"><a href="#"><span>Locations</span> <i
+                class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Pune</a></li>
+              <li><a href="#">Mumbai</a></li>
+              <li><a href="#">Nagpur</a></li>
+              <li><a href="#">Satara</a></li>
+              <li><a href="#">Ahmednagar</a></li>
+              <li><a href="#">Nanded</a></li>
+              <li><a href="#">Karad</a></li>
+              <li><a href="#">Aurangabad</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle d-none"></i>
+      </nav><!-- .navbar -->
+
+      <a class="btn-getstarted scrollto" href=""><%=data.displayName%></a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2><%=hostel.Name.S%></h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><%=hostel.Name.S%></li>
+          </ol>
+        </div>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Details Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8">
+
+            <article class="blog-details">
+
+              <div class="post-img">
+                <img src="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc=" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="title"><%=hostel.Name.S%></h2>
+
+              <div class="meta-top">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href=""></a><%=data.city%></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><%=data.state%></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href=""><%=data.collegeS%>
+                          </a></li>
+                </ul>
+              </div><!-- End meta top -->
+
+              <div class="content">
+                <h3>Details About Hostel</h3>
+                <p>
+                  <%=hostel.description.S%>
+                </p>
+
+
+                <!-- <blockquote>
+                  <p>
+                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
+                  </p>
+                </blockquote> -->
+                <h3>Additonal information about Hostel</h3>
+                <p>
+                  <%=hostel.AdditionalInfo.S%>
+                </p>
+                <h3>Owner Contact Details</h3>
+                <p>
+                  <%=hostel.OwnerName.S%>
+                </p>
+                <p>
+                  <%=hostel.OwnerPhone.S%>
+                </p>
+                <p>
+                  <%=hostel.OwnerEmail.S%>
+                </p>
+
+              </div><!-- End post content -->
+
+              <div class="meta-bottom">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">Business</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+              </div><!-- End meta bottom -->
+
+            </article><!-- End blog post -->
+
+
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <div class="sidebar-item search-form">
+                <h3 class="sidebar-title">Search</h3>
+                <form action="" class="mt-3">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <div class="sidebar-item categories">
+                <h3 class="sidebar-title">Categories</h3>
+                <ul class="mt-3">
+                  <li><a href="#">General <span>(25)</span></a></li>
+                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                  <li><a href="#">Travel <span>(5)</span></a></li>
+                  <li><a href="#">Design <span>(22)</span></a></li>
+                  <li><a href="#">Creative <span>(8)</span></a></li>
+                  <li><a href="#">Educaion <span>(14)</span></a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <div class="sidebar-item recent-posts">
+                <h3 class="sidebar-title">Recent Posts</h3>
+
+                <div class="mt-3">
+
+                  <div class="post-item mt-3">
+                    <img src="/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-post.html">Nihil blanditiis at in nihil autem</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-post.html">Quidem autem et impedit</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-post.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-post.html">Laborum corporis quo dara net para</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-post.html">Et dolores corrupti quae illo quod dolor</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <div class="sidebar-item tags">
+                <h3 class="sidebar-title">Tags</h3>
+                <ul class="mt-3">
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Mac</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Office</a></li>
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Smart</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End Blog Sidebar -->
+
+          </div>
+        </div>
+        <div class="post-author d-flex align-items-center">
+          <img src="https://www.kindpng.com/picc/m/71-715980_transparent-owner-icon-png-emblem-png-download.png" class="rounded-circle flex-shrink-0" alt="">
+          <div>
+            <h4><%=hostel.OwnerName.S%></h4>
+            <div class="social-links">
+              <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
+              <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+              <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+            </div>
+          </div>
+        </div><!-- End post author -->
+
+        <div class="comments">
+
+          <h4 class="comments-count"><%=count%> Comments</h4>
+          <%reviews.forEach(element => {%>
+          <div id="comment-1" class="comment">
+            <div class="d-flex">
+              <div class="comment-img"><img class="rounded" src="https://cdn-icons-png.flaticon.com/512/149/149071.png"  alt=""></div>
+              <div>
+               
+                <h5><a href=""><%=element.Name.S%></a> </h5>
+                <p>
+                 <%=element.Review.S%>
+                </p>
+              </div>
+            </div>
+          </div>
+          <%})%>
+          <!-- End comment #1 -->
+
+          <div class="reply-form">
+
+            <h4>Add a Review</h4>
+          <form action="/addReview" method="post">
+              <div class="row">
+                <div class="col form-group">
+                  <textarea  name="review" class="form-control" placeholder="Your Comment*"></textarea>
+                </div>
+                <!-- take input of date -->
+                <input type="text" name="date" value='<%=new Date();%>' hidden >
+                <input type="text" name="Name" value="<%=data.displayName%>" hidden>
+                <input type="text" name="HostelName" value="<%=hostel.Name.S %>" hidden>
+
+                </div>
+              <button type="submit" class="btn btn-primary">Post Comment</button>
+
+            </form>
+
+          </div>
+
+        </div><!-- End blog comments -->
+
+      </div>
+    </section><!-- End Blog Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>HeroBiz</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal text-center">
+      <div
+        class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>HeroBiz</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

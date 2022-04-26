@@ -14,7 +14,7 @@ router.use(session({
 const firebaseConfig = {
     apiKey: "AIzaSyBnSK9p5id0VspBk3uarzFS-6ytjWRAv2U",
     authDomain: "findmehostel-f4735.firebaseapp.com",
-    databaseURL: "https://findmehostel-f4735-default-rtdb.asia-southeast1.firebasedatabase.app",
+    databaseURL: "https://findmehostel-f4735-default-rtdb.asia-southeast1.firebasedatabase.app/",
     projectId: "findmehostel-f4735",
     storageBucket: "findmehostel-f4735.appspot.com",
     messagingSenderId: "236095233430",
@@ -34,15 +34,29 @@ router.post('/signup', (req, res) => {
 
             const user1 = firebase.auth().currentUser;
             user1.updateProfile({
-                displayName:req.body.name
+                displayName:req.body.name,
+                photoURL:req.body.role
                 
             }).then(() => {
                 console.log("User Updated");
+                console.log(user1)
+                const db = firebase.database();
+                db.ref('users/1').set({
+                    name: req.body.name,
+                    email: req.body.email,
+                    phone: req.body.phone,
+                    college: req.body.college,
+
+                    role: req.body.role
+                });
                 res.redirect('/login');
             }).catch((error) => {
                 // An error occurred
                 // ...
             });
+            //upload data to firebase realtime database
+           
+
         })
         .catch(err => {
             //if error occurs, send error response to client
@@ -63,7 +77,13 @@ router.post('/login', (req, res) => {
             req.session.user = user1;
             req.session.save();
             console.log(user1.displayName);
-                res.redirect('/home');
+                if(user1.photoURL == 'student'){
+                    res.redirect('/home');
+                }else if(user1.photoURL == 'owner'){
+                    res.send("/owner");
+                }else{
+                   res.redirect('/home');
+                }
         })
         .catch(err => {
             //if error occurs, send error response to client

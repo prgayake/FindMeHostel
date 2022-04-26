@@ -2,17 +2,21 @@ const express = require('express');
 const router = express.Router();
 const fileUpload = require('express-fileupload');
 const firebase = require('firebase');
-const AWS = require('aws-sdk');
-const fs = require('fs');
 const isLoggedIn = require('./middleware');
+const env = require('dotenv').config();
+var AWS = require('aws-sdk');
+var fs = require('fs');
+
+AWS.config.update({
+    region: 'ap-south-1'
+});
 
 router.use(fileUpload());
 
-
-AWS.config.update({
-        accessKeyId: 'Your Access key',
-        secretAccessKey: 'Secret Key'
-    })
+// Create the DynamoDB service object
+var ddb = new AWS.DynamoDB({
+    apiVersion: '2012-08-10'
+});
 
 const s3 = new AWS.S3({
     params: {
@@ -20,53 +24,120 @@ const s3 = new AWS.S3({
     }
 });
 
-router.post('/addhostel',isLoggedIn, async (req, res) => {
-    const {files} = req;
-    
-    // add hostel to firebase
-    const hostel = {
-        name: req.body.HostelName,
-        address: req.body.address,
-        description: req.body.description,
-        city: req.body.city,
-        state: req.body.state,
-        college: req.body.college,
-        OwnerName: req.body.OwnerName,
-        OwnerEmail: req.body.OwnerEmail,
-        OwnerPhone: req.body.OwnerPhone,
-        AdditionalInfo: req.body.AdditionalInfo,
 
-    }
-    // insert data to firebase realtime database
-    const hostelRef = firebase.database().ref('hostels/' + req.body.HostelName);
-    hostelRef.set(hostel);
-    for(let i=0;i<(files.Files).length;i++){
-        uploadFileS3(files.Files[i].data,req.body.HostelName+'/'+files.Files[i].name);
-    }
+router.post('/AddHostel', isLoggedIn, async (req, res) => {
 
-    
+    var params = {
+        TableName: 'Hostel',
+        Item: {
+            "Name": {
+                S: req.body.HostelName
+            },
+            "address": {
+                S: req.body.address
+            },
+            "description": {
+                S: req.body.description
+            },
+            "city": {
+                S: req.body.city
+            },
+            "state": {
+                S: req.body.state
+            },
+            "college": {
+                S: req.body.college
+            },
+            "OwnerName": {
+                S: req.body.OwnerName
+            },
+            "OwnerEmail": {
+                S: req.body.OwnerEmail
+            },
+            "OwnerPhone": {
+                S: req.body.OwnerPhone
+            },
+            "AdditionalInfo": {
+                S: req.body.AdditionalInfo
+            },
+            "Latitude": {
+                S: req.body.Latitude
+            },
+            "Longitude": {
+                S: req.body.Longitude
+            }
+
+        }
+    };
+
+
+    // Call DynamoDB to add the item to the table
+    ddb.putItem(params, function (err, data) {
+        if (err) {
+            console.log("Error", err);
+        } else {
+            console.log("Success", data);
+            res.redirect('/home');
+        }
+    });
+
 
 
 })
-async function  uploadFileS3(data,name){
-        try {
-        const upload = new AWS.S3.ManagedUpload({
-            params: {
-                // pass directly the buffer string
-                Body: data,
-                // pass the file name
-                Key: name,
-            },
-            // use the const s3 that we defined above
-            service: s3,
-        })
 
-        const response = await upload.promise()
+router.get('/ownerPage', isLoggedIn, (req, res) => {
+    //get all hostels from dynamoDB
+    const params = {    
+        TableName: 'Hostel',
+    };
+    
+    let hostels = [];
+    let count =0;
+    ddb.scan(params, function (err, data) {
+        if (err) {
+            console.log("Error", err);
+        } else {
+            data.Items.forEach(element => {
+                if(element.OwnerEmail.S == req.session.user.email){
+                    //push all reviews to reviews array
+                    hostels.push(element);
+                    count++;
+                }
+            });
+            res.render('owner', {
+                hostels: hostels,
+                data: req.session.user,
+                count: count
+            });
+        }
+    })
+})
 
-        console.log(response)
-    } catch (error) {
-       console.log(error);
-    }
-}
+router.get('/ownerProfile', isLoggedIn, (req, res) => {
+    const params = {    
+        TableName: 'Hostel',
+    };
+    
+    let hostels = [];
+    let count =0;
+    ddb.scan(params, function (err, data) {
+        if (err) {
+            console.log("Error", err);
+        } else {
+            data.Items.forEach(element => {
+                if(element.OwnerEmail.S == req.session.user.email){
+                    //push all reviews to reviews array
+                    hostels.push(element);
+                    count++;
+                }
+            });
+            res.render('OwnerProfile', {
+                hostels: hostels[0],
+                data: req.session.user,
+                count: count
+            });
+        }
+    })
+})
 
 module.exports = router;
